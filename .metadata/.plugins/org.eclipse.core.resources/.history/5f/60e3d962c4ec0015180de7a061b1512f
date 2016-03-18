@@ -1,0 +1,17 @@
+
+public class Object {
+
+	public static void main(String[] args) {
+	System.out.println("Hello World");
+	
+	Nepal visa=new Nepal();
+	visa.getDisplay();
+	
+			
+		}
+	}
+class Nepal{
+ public void getDisplay(){
+	 System.out.println("I am in USA");
+}
+}
