@@ -1,0 +1,23 @@
+
+public class Ovrriding {
+
+	
+	public static void main(String[] args) {
+		
+		Company a=new Company();
+		eBay b=new eBay();
+		
+		a.address();
+		b.name();
+	}	
+	}
+	class Company{
+		public void address(){
+		System.out.println("This is my real estate bussiness");
+	}
+		class eBay extends Company{
+			public void name(){
+				System.out.println("It's an eBay Company.....");
+			}
+		}
+	}

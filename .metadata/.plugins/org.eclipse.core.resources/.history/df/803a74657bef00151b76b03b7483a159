@@ -1,0 +1,10 @@
+
+public interface Vehicles {
+	
+abstract void color(String color);
+public void cc(int cc);
+public void door(int door);
+public void milage(int speed);
+
+}
+

@@ -1,0 +1,11 @@
+
+public class DemoSWng {
+	super("Web Page");
+	setLayout(new FlowLayout());
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

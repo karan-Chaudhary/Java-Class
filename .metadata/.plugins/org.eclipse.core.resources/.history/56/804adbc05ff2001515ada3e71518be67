@@ -1,0 +1,88 @@
+
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionListener;
+import java.awt.event.MouseWheelEvent;
+import java.awt.event.MouseWheelListener;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
+
+public class MouseLstnr extends JFrame implements MouseMotionListener,MouseWheelListener {
+	public Container cnt;
+	public JLabel lb1,lb2;
+	Border border=LineBorder.createBlackLineBorder();
+	public MouseLstnr(){
+		super("Hello Mouse");
+		setSize(200,300);
+		setVisible(true);
+		setLocationRelativeTo(null);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		cnt=getContentPane();
+		lb1=new JLabel();
+		lb2=new JLabel();
+		cnt.add(lb1);
+		cnt.add(lb2);
+		cnt.setLayout(new FlowLayout());
+		cnt.addMouseMotionListener(this);
+		cnt.addMouseWheelListener(this);
+	}
+		public static void main(String args[]){
+			new MouseLstnr();
+	}
+		@Override
+		public void mouseWheelMoved(MouseWheelEvent e) {
+			String str="Dragged";
+			int x=e.getX();
+			int y=e.getY();
+			lb1.setText("x="+x+" y="+y);
+			if(x>=500){
+				if(x<=600){
+					lb1.setText("You got it.....");
+				}
+			}
+			
+		}
+		@Override
+		public void mouseDragged(MouseEvent e) {
+			String str="Moved";
+			int x=e.getX();
+			int y=e.getY();
+			cnt.setBackground(Color.RED);
+			lb1.setText("Find your treasure by moving your mouse..."+"x="+x+"y="+y);
+			red();
+			double i=Math.random()*800;
+			int j=(int)i;
+			if((x>=j)&(x<=j+100)){
+				if((y<=500)&&(y<=600)){
+					lb1.setText("You got it..");
+					cnt.setBackground(Color.GREEN);
+				}
+			}
+				
+			
+		}
+		private void red() {
+			// TODO Auto-generated method stub
+			
+		}
+		@Override
+		public void mouseMoved(MouseEvent e) {
+			int a=((MouseWheelEvent) e).getWheelRotation();
+			if(a==1){
+				lb2.setText("Moving Forward");
+				lb2.setFont(new Font("Times Roman",Font.ITALIC,20));
+				lb2.setBorder(border);
+			}
+			else{
+				lb2.setText("Moving backward");
+			}
+			}
+		
+		
+	}

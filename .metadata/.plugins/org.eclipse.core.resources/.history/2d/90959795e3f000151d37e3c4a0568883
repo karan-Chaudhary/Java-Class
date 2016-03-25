@@ -1,0 +1,28 @@
+import java.awt.FlowLayout;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+public class DemoJFrame extends JFrame {
+	public JLabel lb1,lb2;
+	public DemoJFrame(){
+		setTitle("My First Apps");
+		setLayout(new FlowLayout());
+		lb1=new JLabel("Welcome\n");
+		add(lb1);
+		lb2=new JLabel("My name is Karan");
+		add(lb2);
+		setSize(100,300);
+		setVisible(true);
+		setResizable(true);
+		setLocationRelativeTo(null);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		
+	}
+
+	public static void main(String[] args) {
+		new DemoJFrame();
+	}
+
+}

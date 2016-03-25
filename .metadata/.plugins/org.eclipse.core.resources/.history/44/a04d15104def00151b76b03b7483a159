@@ -1,0 +1,13 @@
+
+public class toyato {
+
+	public static void main(String[] args) {
+		Tractor trac=new Tractor();
+		trac.cc(200);
+		trac.color("red");
+		trac.door(4);
+	}
+}
+
+public class Tractor implements Vehicles{
+}

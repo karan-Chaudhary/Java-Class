@@ -33,8 +33,9 @@ class eBay extends Company{
 
 	}
 	public void add() {
-		super.add();
+		//super.add();
 		System.out.println("world is Boring");
+		
 	}
 
 }

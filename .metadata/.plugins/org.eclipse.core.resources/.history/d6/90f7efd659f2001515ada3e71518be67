@@ -1,0 +1,9 @@
+import java.awt.event.MouseMotionListener;
+
+public class MouseWheelLisener extends JFrame implements MouseMotionListener,MouseWheelListener {
+
+	public static void main(String[] args) {
+		
+	}
+
+}
