@@ -11,8 +11,7 @@ public class JSubmenu extends JFrame{
 		public Container cnt;
 		public JMenuBar mb;
 		public JMenu file,edit;
-		public JMenuItem fileNew,fileOpen,subOpenDoc,fileExit;
-		JSubmenu subOpenWeb;	
+		public JMenuItem submenu,fileNew,fileOpen,subOpenWeb,subOpenDoc,fileExit,submenu1;	
 		
 		
 		public JSubmenu(){
@@ -23,17 +22,20 @@ public class JSubmenu extends JFrame{
 			edit=new JMenu("Edit");
 			mb.add(file);
 			mb.add(edit);
-			fileNew=new JMenuItem("New");
+			
+			submenu=new JMenu("Sub Menu");
+			submenu1=new JMenu("Sub Menu2");
 		    fileOpen=new JMenuItem("Open");
 		    fileExit=new JMenuItem("Exit");
-		    file.add(fileNew);
-		    file.addSeparator();
-		    file.add(fileOpen);
-		    file.add(fileExit);
-		    subOpenWeb=new JSubmenu();
+		    submenu.add(fileOpen);
+		    submenu.add(fileExit);
+		    submenu1.add(fileOpen);
+		    file.add(submenu1);
+		    subOpenWeb=new JMenuItem("Open Web");
 		    subOpenDoc=new JMenuItem("Open Doc");
-		    fileOpen.add(subOpenWeb);
-		    fileOpen.add(subOpenDoc);
+		    submenu.add(subOpenDoc);
+		    file.add(submenu);
+		   
 		    setSize(600,200);
 		    setVisible(true);
 		    setLocationRelativeTo(null);
