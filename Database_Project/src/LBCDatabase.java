@@ -13,7 +13,7 @@ import javax.swing.table.DefaultTableModel;
 
 
 public class LBCDatabase extends JFrame implements ActionListener {
-	public JLabel lb0, lb1, lb2, lb3, lb4, lb5;
+	public JLabel lb0, lb1, lb2, lb3, lb4,lb5;
 	public JButton b1, b2,b3,search;
 	public JTextField f0, f1, f2, f3, f4, f5;
 	public JTextArea area1;
@@ -26,22 +26,22 @@ public class LBCDatabase extends JFrame implements ActionListener {
 	public JTable table;
 
 	public LBCDatabase() {
-		super("Student Database");
-		setVisible(true);
+		super("Student Database");   //setTitle
+		setVisible(true);			//for visibility
 		//setSize(550, 600);
-		cnt = getContentPane();
-		setContentPane(new JLabel(new ImageIcon("image/LBC.jpg")));
+		cnt = getContentPane();   //container
+		setContentPane(new JLabel(new ImageIcon("image/LBC.jpg")));//to insert the image in control panal.
 		//setSize(549, 599);
-		cnt.setLayout(null);
-		lb0 = new JLabel("Roll number");
-		lb0.setForeground(Color.red);
-		add(lb0);
-		lb0.setBounds(150, 30, 100, 20);
+		cnt.setLayout(null);    //dispalying area in desktop.
+		lb0 = new JLabel("Roll");
+		lb0.setForeground(Color.red);   //to set the color of JLabel text
+		add(lb0);      //to add  text in Container.
+		lb0.setBounds(150, 30, 100, 20);   //to set the position n size of text
 		f0 = new JTextField(15);
-		f0.setFont(new Font("Times Roman", Font.BOLD, 15));
+		f0.setFont(new Font("Times Roman", Font.BOLD, 15));   //to set the size of font inside text field
 		add(f0);
 		f0.setBounds(240, 30, 100, 20);
-		lb1 = new JLabel("User Name");
+		lb1 = new JLabel("Name");
 		lb1.setForeground(Color.red);
 		add(lb1);
 		lb1.setBounds(150, 60, 100, 20);
@@ -49,7 +49,7 @@ public class LBCDatabase extends JFrame implements ActionListener {
 		f1.setFont(new Font("Times Roman", Font.BOLD, 15));
 		add(f1);
 		f1.setBounds(240, 60, 100, 20);
-		lb2 = new JLabel("First Name");
+		lb2 = new JLabel("Mobile");
 		lb2.setForeground(Color.red);
 		add(lb2);
 		lb2.setBounds(150, 90, 100, 20);
@@ -57,7 +57,7 @@ public class LBCDatabase extends JFrame implements ActionListener {
 		f2.setFont(new Font("Times Roman", Font.BOLD, 15));
 		add(f2);
 		f2.setBounds(240, 90, 100, 20);
-		lb3 = new JLabel("Last Name");
+		lb3 = new JLabel("Adress");
 		lb3.setForeground(Color.red);
 		add(lb3);
 		lb3.setBounds(150, 120, 100, 20);
@@ -65,14 +65,14 @@ public class LBCDatabase extends JFrame implements ActionListener {
 		f3.setFont(new Font("Times Roman", Font.BOLD, 15));
 		add(f3);
 		f3.setBounds(240, 120, 100, 20);
-		lb4 = new JLabel("Address");
+		/*lb4 = new JLabel("Address");
 		lb4.setForeground(Color.red);
 		add(lb4);
 		lb4.setBounds(150, 150, 100, 20);
 		f4 = new JTextField(15);
 		f4.setFont(new Font("Times Roman", Font.BOLD, 15));
 		add(f4);
-		f4.setBounds(240, 150, 100, 20);
+		f4.setBounds(240, 150, 100, 20);*/
 		b1 = new JButton("Save");
 		b1.addActionListener(this);
 		add(b1);
@@ -135,7 +135,7 @@ public class LBCDatabase extends JFrame implements ActionListener {
 				con = DriverManager.getConnection(
 						"jdbc:mysql://localhost/java_student","root","");
 				stmt = con
-						.prepareStatement("INSERT INTO student_list(Roll,Name,Adress,Mobile) values (?,?,?,?)");
+						.prepareStatement("INSERT INTO student_list(Roll,Name,Mobile,Adress) values (?,?,?,?)");
 				String roll = f0.getText();
 				int Roll = Integer.parseInt(roll);
 				String Name = f1.getText();
@@ -145,18 +145,18 @@ public class LBCDatabase extends JFrame implements ActionListener {
 					JOptionPane.showMessageDialog(null, "valid user");
 					String Mobile= f2.getText();
 					String Adress= f3.getText();
-					stmt.setInt(1, Roll);
+					stmt.setInt(1,Roll);
 					stmt.setString(2,Name);
-					stmt.setString(3, Mobile);
-					stmt.setString(4, Adress);
+					stmt.setString(3,Mobile);
+					stmt.setString(4,Adress);
 					int i = stmt.executeUpdate();
 					if (i == 1) {
 						JOptionPane
 								.showMessageDialog(null, "Recently added data is:"
-										+ "\r\nroll_no=" + Roll + "  "
-										+ "\r\nUserName=" + Name + "  "
-										+ "\r\nMbl=" + Mobile + " " 
-										+ " " + "\r\nAddress=" + Adress);
+										+ "\r\nRoll=" + Roll + "  "
+										+ "\r\nName=" + Name + "  "
+										+ "\r\nMobile=" + Mobile + " " 
+										+ " " + "\r\nAdress=" + Adress);
 
 					} else {
 						JOptionPane
@@ -176,10 +176,10 @@ public class LBCDatabase extends JFrame implements ActionListener {
 				if (i == 1) { 
 					JOptionPane
 							.showMessageDialog(null, "Recently added data is:"
-									+ "\r\nroll_no=" + Roll + "  "
-									+ "\r\nUserName=" + Name + "  "
-									+ "\r\nMbl=" + Mobile + " " 
-									+ " " + "\r\nAddress=" + Adress);
+									+ "\r\nRoll=" + Roll + "  "
+									+ "\r\nName=" + Name + "  "
+									+ "\r\nMobile=" + Mobile + " " 
+									+ " " + "\r\nAdress=" + Adress);
 
 				} else {
 					JOptionPane
@@ -209,7 +209,7 @@ public class LBCDatabase extends JFrame implements ActionListener {
 					/*area1.append("\r\n");
 					area1.append("     " + "Roll=" + Rs.getInt(1) + "\r\n"
 							+ "     " + "Name=" + Rs.getString(2) + "\r\n"
-							+ "     " + "Mbl=" + Rs.getString(3) + ""
+							+ "     " + "Mobile=" + Rs.getString(3) + ""
 							+ Rs.getString(4) + "\r\n" + "     " + "Adress=";
 					area1.append("\r\n");
 					area1.append("\r\n");
@@ -231,7 +231,7 @@ public class LBCDatabase extends JFrame implements ActionListener {
 		else if(e.getSource()==b3){
 			try{
 				Class.forName("com.mysql.jdbc.Driver");
-				con=DriverManager.getConnection("jdbc:mysql://localhost/BEX_B","root","");
+				con=DriverManager.getConnection("jdbc:mysql://localhost/java_student","root","");
 				stmt=con.prepareStatement("DELETE FROM student_list where Roll=? ") ;
 				String roll = f0.getText();
 				int Roll = Integer.parseInt(roll);
