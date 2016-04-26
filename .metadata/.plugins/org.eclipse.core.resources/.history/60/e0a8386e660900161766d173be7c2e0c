@@ -25,9 +25,6 @@ while(i<=2000){
 public static void main(String[] args) {  
     MyProgress m=new MyProgress();  
     m.setVisible(true);  
-    m.iterate(); 
-    /* iterate helps to display the progressive change
-     * from min to max
-     */
+    //m.iterate();  
 }  
 } 

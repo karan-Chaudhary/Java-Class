@@ -1,8 +1,7 @@
 import javax.swing.*;  
-public class MyTable {  
-    JFrame f;  
+public class MyTable {   
 MyTable(){  
-    f=new JFrame();  
+    JFrame f=new JFrame();  
       
     String data[][]={ {"100","Amit","670000"},  
               {"101","Jai","780000"},  
